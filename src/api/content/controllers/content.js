@@ -9,9 +9,7 @@ const { createCoreController } = require("@strapi/strapi").factories;
 module.exports = createCoreController("api::content.content", ({ strapi }) => ({
   async find(ctx) {
     const { data, meta } = await super.find(ctx, {
-      populate: {
-        client: true,
-      },
+      populate: "*",
     });
 
     const userId = ctx.state.user.id;

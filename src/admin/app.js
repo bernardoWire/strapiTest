@@ -1,3 +1,5 @@
+import menuLogo from "./extensions/wirewheel-logo.png";
+
 export default {
   config: {
     locales: [
@@ -28,6 +30,9 @@ export default {
       // 'zh-Hans',
       // 'zh',
     ],
+    menu: {
+      logo: menuLogo,
+    },
   },
   bootstrap(app) {
     console.log(app);

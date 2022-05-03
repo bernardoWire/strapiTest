@@ -20,9 +20,6 @@
       "type": "text",
       "required": true
     },
-    "Customization": {
-      "type": "json"
-    },
     "client": {
       "type": "relation",
       "relation": "manyToOne",
