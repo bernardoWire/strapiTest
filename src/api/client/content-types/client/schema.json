@@ -23,10 +23,10 @@
       "target": "api::content.content",
       "mappedBy": "client"
     },
-    "users_permissions_users": {
+    "customizations": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "plugin::users-permissions.user",
+      "target": "api::customization.customization",
       "mappedBy": "client"
     }
   }

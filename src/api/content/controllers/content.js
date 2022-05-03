@@ -5,17 +5,31 @@
  */
 
 const { createCoreController } = require("@strapi/strapi").factories;
+const { convertRestQueryParams } = require("strapi-utils");
+const url = require("url");
 
 module.exports = createCoreController("api::content.content", ({ strapi }) => ({
   async find(ctx) {
-    const { data, meta } = await super.find(ctx, {
-      populate: "*",
-    });
+    const query = url.parse(ctx.req.url, true).query;
 
-    const userId = ctx.state.user.id;
-    return data.filter(
-      (content) => content.attributes.client.data.id === userId
-    );
+    if (!query.client)
+      return ctx.send(
+        { error: "Client id missing (contents?client=<id>)" },
+        400
+      );
+
+    ctx.query = {
+      populate: "*",
+      filters: {
+        client: {
+          id: query.client,
+        },
+      },
+    };
+
+    const { data, meta } = await super.find(ctx, {
+      limit: 1,
+    });
 
     return { data, meta };
   },

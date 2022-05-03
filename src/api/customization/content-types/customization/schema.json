@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "customizations",
+  "info": {
+    "singularName": "customization",
+    "pluralName": "customizations",
+    "displayName": "Customization"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "client": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::client.client",
+      "inversedBy": "customizations"
+    },
+    "font": {
+      "type": "json"
+    },
+    "theme": {
+      "type": "json"
+    }
+  }
+}

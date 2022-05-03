@@ -62,12 +62,6 @@
       "target": "plugin::users-permissions.role",
       "inversedBy": "users",
       "configurable": false
-    },
-    "client": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::client.client",
-      "inversedBy": "users_permissions_users"
     }
   }
 }
