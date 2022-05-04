@@ -5,7 +5,6 @@
  */
 
 const { createCoreController } = require("@strapi/strapi").factories;
-const { convertRestQueryParams } = require("strapi-utils");
 const url = require("url");
 
 module.exports = createCoreController("api::content.content", ({ strapi }) => ({
@@ -19,6 +18,7 @@ module.exports = createCoreController("api::content.content", ({ strapi }) => ({
       );
 
     ctx.query = {
+      ...ctx.query,
       populate: "*",
       filters: {
         client: {
@@ -27,10 +27,16 @@ module.exports = createCoreController("api::content.content", ({ strapi }) => ({
       },
     };
 
-    const { data, meta } = await super.find(ctx, {
+    const { data } = await super.find(ctx, {
       limit: 1,
     });
 
-    return { data, meta };
+    strapi.service("api::content.content").send();
+
+    return data.map((content) => {
+      delete content.attributes.client;
+
+      return content;
+    });
   },
 }));
