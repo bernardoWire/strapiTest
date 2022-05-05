@@ -4,7 +4,7 @@ const config = parse(process.env.DATABASE_URL);
 module.exports = ({ env }) => ({
   connection: {
     client: "postgres",
-    connection: {
+    connection: { 
       host: config.host,
       port: config.port,
       database: config.database,
