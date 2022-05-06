@@ -17,16 +17,22 @@
       "required": true,
       "unique": true
     },
-    "contents": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::content.content",
-      "mappedBy": "client"
-    },
     "customizations": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::customization.customization",
+      "mappedBy": "client"
+    },
+    "content": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::content.content",
+      "mappedBy": "client"
+    },
+    "consents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::consent.consent",
       "mappedBy": "client"
     }
   }

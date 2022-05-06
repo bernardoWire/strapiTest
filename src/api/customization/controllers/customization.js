@@ -37,4 +37,17 @@ module.exports = createCoreController("api::customization.customization", {
       return content;
     });
   },
+  async create(ctx) {
+    const clientID = ctx.request.body.client;
+    const client = await strapi.entityService.query.findOne(
+      "api::customization.customization",
+      clientID
+    );
+
+    console.log(client);
+
+    const response = await super.create(ctx);
+
+    return response;
+  },
 });

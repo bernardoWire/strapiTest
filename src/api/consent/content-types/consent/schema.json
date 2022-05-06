@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "consents",
+  "info": {
+    "singularName": "consent",
+    "pluralName": "consents",
+    "displayName": "Consent",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "head": {
+      "type": "string",
+      "required": true
+    },
+    "body": {
+      "type": "text",
+      "required": true
+    },
+    "agreed": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "client": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::client.client",
+      "inversedBy": "consents"
+    }
+  }
+}

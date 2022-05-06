@@ -12,4 +12,10 @@ module.exports = {
 
     // do something to the result;
   },
+  // async beforeCreate(event) {
+  //   throw new Error("NELSON");
+  // },
+  // async beforeUpdate(event) {
+  //   console.log(event.action);
+  // },
 };
