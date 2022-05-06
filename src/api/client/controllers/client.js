@@ -10,7 +10,7 @@ module.exports = createCoreController("api::client.client", {
   async find(ctx) {
     ctx.query = {
       ...ctx.query,
-      populate: ["content.logo", "customizations"],
+      populate: ["content.logo", "customizations", "consents"],
     };
 
     const { data } = await super.find(ctx);
@@ -20,7 +20,7 @@ module.exports = createCoreController("api::client.client", {
   async findOne(ctx) {
     ctx.query = {
       ...ctx.query,
-      populate: ["content.logo", "customizations"],
+      populate: ["content.logo", "customizations", "consents"],
     };
 
     const { data } = await super.findOne(ctx);
