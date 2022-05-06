@@ -8,7 +8,6 @@ const { createCoreController } = require("@strapi/strapi").factories;
 
 module.exports = createCoreController("api::client.client", {
   async find(ctx) {
-    console.log("HERE");
     ctx.query = {
       ...ctx.query,
       populate: ["content.logo", "customizations"],
@@ -19,7 +18,6 @@ module.exports = createCoreController("api::client.client", {
     return data;
   },
   async findOne(ctx) {
-    console.log("HERE");
     ctx.query = {
       ...ctx.query,
       populate: ["content.logo", "customizations"],
