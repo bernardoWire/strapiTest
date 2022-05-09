@@ -30,6 +30,17 @@
       "relation": "manyToOne",
       "target": "api::client.client",
       "inversedBy": "consents"
+    },
+    "last_updated": {
+      "type": "datetime"
+    },
+    "include": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "link": {
+      "type": "string"
     }
   }
 }
