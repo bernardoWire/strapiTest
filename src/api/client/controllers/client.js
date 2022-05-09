@@ -27,4 +27,16 @@ module.exports = createCoreController("api::client.client", {
 
     return data;
   },
+  async findOneByName(ctx) {
+    ctx.query = {
+      filters: {
+        name: ctx.params.name,
+      },
+      populate: ["content.logo", "customizations", "consents"],
+    };
+
+    const { data } = await super.find(ctx)[0];
+
+    return data;
+  },
 });
