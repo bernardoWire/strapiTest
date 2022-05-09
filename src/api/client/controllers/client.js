@@ -35,8 +35,10 @@ module.exports = createCoreController("api::client.client", {
       populate: ["content.logo", "customizations", "consents"],
     };
 
-    const { data } = await super.find(ctx)[0];
+    console.log(ctx.params);
 
-    return data;
+    const { data } = await super.find(ctx);
+
+    return data[0];
   },
 });

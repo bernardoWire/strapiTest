@@ -11,13 +11,13 @@ module.exports = {
   routes: [
     {
       method: "GET",
-      path: "/clients/:name([a-z]*)",
-      handler: "client.findOneByName",
+      path: "/clients/",
+      handler: "client.find",
     },
     {
       method: "GET",
-      path: "/clients/",
-      handler: "client.find",
+      path: "/clients/:name([a-z]*)",
+      handler: "client.findOneByName",
     },
     {
       method: "GET",
